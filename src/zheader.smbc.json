@@ -1,0 +1,48 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Maintain 제조원가명세서 Header",
+    "originalLanguage": "ko",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "serviceConfiguration": {
+    "serviceBinding": "ZUI_HEADER_O4",
+    "serviceName": "ZUI_HEADER_O4",
+    "serviceVersion": "0001",
+    "rootEntitySet": "HeaderAll",
+    "name": "제조원가명세서 Header",
+    "configurationGroup": "",
+    "skipRootEntity": true
+  },
+  "appConfiguration": {
+    "listReport": {},
+    "objectPages": [
+      {
+        "entitySet": "HeaderAll",
+        "variantManagement": "control",
+        "showTransportSelectionStrip": true
+      }
+    ],
+    "tableSettings": [
+      {
+        "entitySet": "Header",
+        "tableType": "gridTable",
+        "selectAll": true,
+        "rowCountMode": "auto",
+        "frozenColumnCount": 1,
+        "creationModeName": "inlineCreationRows",
+        "createAtEnd": true,
+        "widthIncludingColumnHeader": true
+      },
+      {
+        "entitySet": "Item",
+        "tableType": "gridTable",
+        "selectAll": true,
+        "frozenColumnCount": 1,
+        "creationModeName": "inlineCreationRows",
+        "createAtEnd": true,
+        "widthIncludingColumnHeader": true
+      }
+    ]
+  }
+}

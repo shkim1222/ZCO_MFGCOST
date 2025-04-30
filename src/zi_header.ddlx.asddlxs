@@ -1,0 +1,138 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'Header', 
+    typeNamePlural: 'Headers', 
+    title: {
+      type: #STANDARD, 
+      label: '제조원가명세서 Header', 
+      value: 'Nodeid'
+    }
+  }
+}
+annotate view ZI_Header with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_Header', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: '제조원가명세서 설정', 
+    position: 1 
+  }, 
+  {
+    id: 'ZI_Item', 
+    type: #LINEITEM_REFERENCE, 
+    label: '제조원가명세서 Item', 
+    position: 2 , 
+    targetElement: '_Item'
+  } ]
+  Nodeid;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Orderby;
+  
+  @UI.identification: [ {
+    position: 3 , 
+    label: '계층레벨'
+  } ]
+  @UI.lineItem: [ {
+    position: 3 , 
+    label: '계층레벨'
+  } ]
+  Hierarchylevel;
+  
+  @UI.identification: [ {
+    position: 4 
+  } ]
+  @UI.lineItem: [ {
+    position: 4 
+  } ]
+  Parentnodeid;
+  
+  @UI.identification: [ {
+    position: 5 , 
+    label: '확장여부'
+  } ]
+  @UI.lineItem: [ {
+    position: 5 , 
+    label: '확장여부'
+  } ]
+  Drillstate;
+  
+  @UI.identification: [ {
+    position: 6 , 
+    label: '내역'
+  } ]
+  @UI.lineItem: [ {
+    position: 6 , 
+    label: '내역'
+  } ]
+  Description;
+  
+  @UI.identification: [ {
+    position: 7 
+  } ]
+  @UI.lineItem: [ {
+    position: 7 
+  } ]
+  @Consumption.valueHelpDefinition: 
+    [{ entity: { name : 'ZI_GET_DOMAIN' , element: 'low' } ,
+         additionalBinding: [{ element: 'domain_name',
+                               localConstant: 'ZE_YN', usage: #FILTER }]
+                               , distinctValues: true
+                               }]
+  Useyn;
+  
+  @UI.identification: [ {
+    position: 8 
+  } ]
+  @UI.lineItem: [ {
+    position: 8 
+  } ]
+  @Consumption.valueHelpDefinition: 
+    [{ entity: { name : 'ZI_GET_DOMAIN' , element: 'low' } ,
+         additionalBinding: [{ element: 'domain_name',
+                               localConstant: 'ZE_YN', usage: #FILTER }]
+                               , distinctValues: true
+                               }]
+  Joinyn;
+  
+  @UI.identification: [ {
+    position: 9 
+  } ]
+  @UI.lineItem: [ {
+    position: 9 
+  } ]
+  @Consumption.valueHelpDefinition: 
+    [{ entity: { name : 'ZI_GET_DOMAIN' , element: 'low' } ,
+         additionalBinding: [{ element: 'domain_name',
+                               localConstant: 'ZE_YN', usage: #FILTER }]
+                               , distinctValues: true
+                               }]
+  Moveyn;
+  
+  @UI.identification: [ {
+    position: 10
+  } ]
+  @UI.lineItem: [ {
+    position: 10
+  } ]
+  @Consumption.valueHelpDefinition: 
+    [{ entity: { name : 'ZI_GET_DOMAIN' , element: 'low' } ,
+         additionalBinding: [{ element: 'domain_name',
+                               localConstant: 'ZE_PERIOD', usage: #FILTER }]
+                               , distinctValues: true
+                               }]  
+  Periodtype;
+}

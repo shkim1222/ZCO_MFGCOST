@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SIA6" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <SIA6>
+    <MAIN_OBJECT>
+     <NAME>ZASPN_CO_MFGCOST_01_MBC</NAME>
+     <TYPE>SIA6</TYPE>
+     <DESCRIPTION>[CO] 제조원가명세서</DESCRIPTION>
+     <RESPONSIBLE>CB9980000017</RESPONSIBLE>
+     <MASTER_LANGUAGE>KO</MASTER_LANGUAGE>
+     <MASTER_SYSTEM>JBC</MASTER_SYSTEM>
+     <PACKAGE_REF>
+      <PACKAGE_NAME>ZASPN_CO_MFGCOST</PACKAGE_NAME>
+     </PACKAGE_REF>
+     <ABAP_LANGU_VERSION>5</ABAP_LANGU_VERSION>
+    </MAIN_OBJECT>
+    <APP_ID>ZASPN_CO_MFGCOST_01_MBC</APP_ID>
+    <APP_TYPE>MBC</APP_TYPE>
+    <ABAP_LANGUAGE_VERSION>5</ABAP_LANGUAGE_VERSION>
+    <SERVICE>
+     <item>
+      <REL_NAME>ZUI_HEADER_O4</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZASPN_CO_MFGCOST_01_MBC</APP_ID>
+      <SRVC_NAME>5B29173B4C55B85AE1BA40177290BB</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <TEXT>Maintain 제조원가명세서 Header</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+    </SERVICE>
+    <AUTH>
+     <item>
+      <AUTH_OBJECT>S_TABU_NAM</AUTH_OBJECT>
+      <STATUS>U</STATUS>
+      <TEXT>일반 표준 툴을 통한 테이블 액세스</TEXT>
+      <AUTH_ITEM>
+       <item>
+        <UUID>/79bTPHvH+CIrxWTJJu3gA==</UUID>
+        <AUTH_OBJECT>S_TABU_NAM</AUTH_OBJECT>
+        <AUTH_OBJECT_INSTANCE>0001</AUTH_OBJECT_INSTANCE>
+        <TEXT>일반 표준 툴을 통한 테이블 액세스</TEXT>
+        <STATUS>U</STATUS>
+        <VALUES>
+         <item>
+          <FIELD>ACTVT</FIELD>
+          <VALUE>변경,조회</VALUE>
+          <VALUES>
+           <item>
+            <UUID>/79bTPHvH+CIrxWTJJvXgA==</UUID>
+            <LOW_VALUE>02</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>/79bTPHvH+CIrxWTJJv3gA==</UUID>
+            <LOW_VALUE>03</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>액티비티</TEXT>
+          <STATUS>U</STATUS>
+          <IS_ACTVT>X</IS_ACTVT>
+         </item>
+         <item>
+          <FIELD>TABLE</FIELD>
+          <VALUE>ZI_HEADER</VALUE>
+          <VALUES>
+           <item>
+            <UUID>/79bTPHvH+CIrxWTJJwXgA==</UUID>
+            <LOW_VALUE>ZI_HEADER</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>테이블 이름</TEXT>
+          <STATUS>U</STATUS>
+         </item>
+        </VALUES>
+       </item>
+      </AUTH_ITEM>
+     </item>
+    </AUTH>
+    <PUBLISH_STATUS>p</PUBLISH_STATUS>
+   </SIA6>
+  </asx:values>
+ </asx:abap>
+</abapGit>

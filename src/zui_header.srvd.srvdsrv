@@ -1,0 +1,6 @@
+@ObjectModel.leadingEntity.name: 'ZI_Header_S'
+define service ZUI_HEADER {
+  expose ZI_HEADER_S as HeaderAll;
+  expose ZI_HEADER as Header;
+  expose ZI_ITEM as Item;
+}

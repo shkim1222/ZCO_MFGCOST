@@ -1,0 +1,33 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "[CO] 제조원가명세서-ver2",
+    "originalLanguage": "ko",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD"
+  },
+  "ui5AppDetails": {
+    "appId": "zcomfgcost01"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_BCD8FAC7BA01594606C1AB098C421C5934624802_TM",
+    "semanticObject": "zco_mfgcost_01",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_BCD8FAC7BA01594606C1AB098C421C5934624802_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "[CO] 제조원가명세서-ver2"
+      }
+    }
+  ]
+}

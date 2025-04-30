@@ -1,0 +1,8 @@
+@EndUserText.label: '제조원가명세서 Main Service'
+define service ZSD_CO_MFGCOST_01 {
+  expose ZR_CO_MFGCOST_01;
+  expose ZR_CO_MFGCOST_VH_02       as Ledger;
+  expose I_CompanyCodeVH           as Company;
+  expose I_GLAcctInChtOfAcctsStdVH as GLAccount;
+  expose I_PlantStdVH              as Plant;
+}

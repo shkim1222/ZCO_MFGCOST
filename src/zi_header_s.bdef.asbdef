@@ -1,0 +1,136 @@
+managed with additional save implementation in class ZBP_I_HEADER_S unique;
+strict;
+with draft;
+define behavior for ZI_Header_S alias HeaderAll
+draft table ZCO_MFGCOST_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _Header { create ( features : instance ); with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+  }
+
+define behavior for ZI_Header alias Header ##UNMAPPED_FIELD
+persistent table ZCO_MFGCOST_01
+draft table ZCO_MFGCOST_01_D
+etag master LocalLastChangedAt
+lock dependent by _HeaderAll
+authorization dependent by _HeaderAll
+
+{
+  field ( mandatory : create )
+   Nodeid;
+
+  field ( readonly )
+   SingletonID,
+   LastChangedAt,
+   LocalLastChangedAt;
+
+  field ( readonly : update )
+   Nodeid;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAt,
+   LocalLastChangedAt;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZCO_MFGCOST_01
+  {
+    Nodeid = NODEID;
+    Orderby = ORDERBY;
+    Hierarchylevel = HIERARCHYLEVEL;
+    Parentnodeid = PARENTNODEID;
+    Drillstate = DRILLSTATE;
+    Description = DESCRIPTION;
+    Useyn = USEYN;
+    Joinyn = JOINYN;
+    Moveyn = MOVEYN;
+    Periodtype = PERIODTYPE;
+    LastChangedAt = LAST_CHANGED_AT;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+  association _HeaderAll { with draft; }
+  association _Item { create ( features : global ); with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}
+
+define behavior for ZI_Item alias Item ##UNMAPPED_FIELD
+persistent table ZCO_MFGCOST_02
+draft table ZCO_MFGCOST_02_D
+etag master LocalLastChangedAt
+lock dependent by _HeaderAll
+authorization dependent by _HeaderAll
+
+{
+  field ( mandatory : create )
+   Itemid;
+
+  field ( readonly )
+   SingletonID,
+   Nodeid,
+   LocalLastChangedAt;
+
+  field ( readonly : update )
+   Itemid;
+
+  field ( notrigger )
+   SingletonID,
+   LocalLastChangedAt;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZCO_MFGCOST_02
+  {
+    Nodeid = NODEID;
+    Itemid = ITEMID;
+    Orderby = ORDERBY;
+    Calctype = CALCTYPE;
+    Sign = SIGN;
+    Calcnode = CALCNODE;
+    Glaccountfrom = GLACCOUNTFROM;
+    Glaccountto = GLACCOUNTTO;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+  association _HeaderAll { with draft; }
+  association _Header { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

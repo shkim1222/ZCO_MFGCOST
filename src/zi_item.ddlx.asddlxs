@@ -1,0 +1,98 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'Item', 
+    typeNamePlural: 'Items', 
+    title: {
+      type: #STANDARD, 
+      label: '제조원가명세서 Item', 
+      value: 'Itemid'
+    }
+  }
+}
+annotate view ZI_Item with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_Item', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: '제조원가명세서 Item', 
+    position: 1 
+  } ]
+  Itemid;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Orderby;
+  
+  @UI.identification: [ {
+    position: 3 
+  } ]
+  @UI.lineItem: [ {
+    position: 3 
+  } ]
+  @Consumption.valueHelpDefinition: 
+  [{ entity: { name : 'ZI_GET_DOMAIN' , element: 'low' } ,
+         additionalBinding: [{ element: 'domain_name',
+                               localConstant: 'ZE_CALCTYPE', usage: #FILTER }]
+                               , distinctValues: true
+                           }]
+  Calctype;
+  
+  @UI.identification: [ {
+    position: 4 
+  } ]
+  @UI.lineItem: [ {
+    position: 4 
+  } ]
+  @Consumption.valueHelpDefinition: 
+  [{ entity: { name : 'ZI_GET_DOMAIN' , element: 'low' } ,
+         additionalBinding: [{ element: 'domain_name',
+                               localConstant: 'ZE_SIGN', usage: #FILTER }]
+                               , distinctValues: true
+                           }]    
+  Sign;
+  
+  @UI.identification: [ {
+    position: 5 , 
+    label: '대상 Node'
+  } ]
+  @UI.lineItem: [ {
+    position: 5 , 
+    label: '대상 Node'
+  } ]
+  @Consumption.valueHelpDefinition: [{ entity: { name : 'ZR_CO_MFGCOST_VH_01' , element: 'Nodeid' }}]  
+  Calcnode;
+  
+  @UI.identification: [ {
+    position: 6 , 
+    label: 'GL계정 From'
+  } ]
+  @UI.lineItem: [ {
+    position: 6 , 
+    label: 'GL계정 From'
+  } ]
+  @Consumption.valueHelpDefinition: [{ entity: { name : 'I_GLAccountStdVH' , element: 'GLAccount' }}]  
+  Glaccountfrom;
+  
+  @UI.identification: [ {
+    position: 7 , 
+    label: 'GL계정 To'
+  } ]
+  @UI.lineItem: [ {
+    position: 7 , 
+    label: 'GL계정 To'
+  } ]
+  @Consumption.valueHelpDefinition: [{ entity: { name : 'I_GLAccountStdVH' , element: 'GLAccount' }}]  
+  Glaccountto;
+}
